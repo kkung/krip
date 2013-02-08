@@ -26,7 +26,7 @@ def update():
                                name,
                                name_en,
                                datetime.strptime(assigned_at, '%Y%m%d'))
-        db.session.add(krip)
+            db.session.add(krip)
         # int(r.network) < int(s.network) < int(r.broadcast)
         print '%s - %s(%s) : %s' % (ipaddr_st, ipaddr_ed, net, assigned_at)
 
