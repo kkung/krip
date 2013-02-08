@@ -28,9 +28,15 @@ def lookup(address):
 
     result, addr = _lookup()
 
-    response = make_response(json.dumps({
+    jsonp = request.args.get('callback', None)
+    resp_content = json.dumps({
         'result': result,
         'return_value': addr
-    }, cls=KRIPAddressEncoder))
+    }, cls=KRIPAddressEncoder)
+
+    if jsonp:
+        resp_content = '%s(%s)' % (str(jsonp), resp_content)
+
+    response = make_response(resp_content)
     response.mimetype = 'application/json'
     return response
