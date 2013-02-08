@@ -13,7 +13,9 @@ Check whether given ip-address is assigned by [KRNIC](http://krnic.or.kr/)
     
     $ curl http://krip.kkung.net/?address=1.111.111.0/24
     {"return_value": {"begin": "1.96.0.0", "name": "\uc8fc\uc2dd\ud68c\uc0ac \ucf00\uc774\ud2f0", "end": "1.111.255.255", "name_en": "KTFWING", "assigned_at": "2010-06-07"}, "result": true}%
-    
+
+    $ curl http://krip.kkung.net/?callback=chk_kr
+    chk_kr({"return_value": {"begin": "1.208.0.0", "name": "\uc8fc\uc2dd\ud68c\uc0ac \uc5d8\uc9c0\uc720\ud50c\ub7ec\uc2a4", "end": "1.223.255.255", "name_en": "BORANET", "assigned_at": "2010-06-14"}, "result": true})
     
 
 ## License
