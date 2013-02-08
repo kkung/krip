@@ -1,10 +1,12 @@
 import os
 from flask import Flask, json, make_response, request
 from flask.ext.sqlalchemy import SQLAlchemy
+from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
+app.wsgi_app = ProxyFix(app.wsgi_app)
 
 from .models import KRIPAddress, KRIPAddressEncoder
 
