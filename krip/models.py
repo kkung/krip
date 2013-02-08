@@ -15,8 +15,8 @@ class KRIPAddressEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 class KRIPAddress(db.Model):
-    ipaddr_begin = db.Column(db.Integer, primary_key=True)
-    ipaddr_end = db.Column(db.Integer, primary_key=True)
+    ipaddr_begin = db.Column(db.BigInteger, primary_key=True)
+    ipaddr_end = db.Column(db.BigInteger, primary_key=True)
     assigned_name = db.Column(db.String, nullable=False)
     assigned_name_en = db.Column(db.String, nullable=False)
     assigned_at = db.Column(db.DateTime, nullable=False)
