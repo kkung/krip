@@ -1,8 +1,9 @@
+import os
 from flask import Flask, json, make_response, request
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config.from_envvar('KRIP_SETTINGS', silent=False)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 from .models import KRIPAddress, KRIPAddressEncoder
